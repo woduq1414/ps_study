@@ -5,15 +5,12 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 
 
-def func(lis, output, c):
+def func(nn, output, c):
     if c == 0:
         return
 
-    for num in lis:
+    for num in range(1, n+1):
 
-
-
-        temp = lis[:]
         output_new = output[:]
 
         output_new.append(num)
@@ -23,7 +20,7 @@ def func(lis, output, c):
 
 
 
-        func(temp, output_new, c - 1)
+        func(nn, output_new, c - 1)
 
 
-func(list(range(1, n + 1)), [], m)
+func(n, [], m)
