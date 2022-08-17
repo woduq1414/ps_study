@@ -26,7 +26,7 @@ else:
 
     c_lis = []
 
-    for i in range(int_log - 3, int_log + 5, 1):
+    for i in range(int_log - 1, int_log + 2, 1):
 
         if i < 0:
             continue
