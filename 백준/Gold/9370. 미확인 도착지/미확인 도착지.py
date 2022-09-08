@@ -32,7 +32,8 @@ for _ in range(T):
         heapq.heappush(pq, (0, s))
         while pq:
             currCost, currPos = heapq.heappop(pq)
-            if currCost < distance[currPos]: continue
+            if currCost > distance[currPos]:
+                continue
 
             for nextCost, nextPos in graph[currPos]:
                 if currCost + nextCost < distance[nextPos]:
