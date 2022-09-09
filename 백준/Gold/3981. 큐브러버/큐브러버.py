@@ -22,9 +22,8 @@ for _ in range(T):
         f = True
         for i in range(4, len(arr)):
             j = i + 1
-            answer = Decimal(
-                a * Decimal(j ** 3) + b * Decimal(j ** 2) + c * Decimal(j) + d)
-            if abs(Decimal(arr[i]) - answer) >= 0.00001:
+            answer = a * (j ** 3) + b * (j ** 2) + c * j + d
+            if abs(arr[i] - answer) >= 0.00001:
                 f = False
 
         if f is False:
