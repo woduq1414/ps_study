@@ -1,5 +1,5 @@
 import sys
-from decimal import *
+
 
 input = sys.stdin.readline
 
@@ -14,10 +14,10 @@ for _ in range(T):
     else:
         x, y, z, w = arr[0:4]
 
-        a = Decimal((w - x + 3 * y - 3 * z) / 6)
-        b = Decimal((-2 * w + 3 * x - 8 * y + 7 * z) / 2)
-        c = Decimal((11 * w - 26 * x + 57 * y - 42 * z) / 6)
-        d = Decimal(-w + 4 * x - 6 * y + 4 * z)
+        a = (w - x + 3 * y - 3 * z) / 6
+        b = (-2 * w + 3 * x - 8 * y + 7 * z) / 2
+        c = (11 * w - 26 * x + 57 * y - 42 * z) / 6
+        d = -w + 4 * x - 6 * y + 4 * z
 
         f = True
         for i in range(4, len(arr)):
