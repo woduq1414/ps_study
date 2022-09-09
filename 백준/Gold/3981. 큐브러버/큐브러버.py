@@ -25,7 +25,7 @@ for _ in range(T):
             answer = a * (j ** 3) + b * (j ** 2) + c * j + d
             if abs(arr[i] - answer) >= 0.00001:
                 f = False
-
+                break
         if f is False:
             print("NO")
         else:
