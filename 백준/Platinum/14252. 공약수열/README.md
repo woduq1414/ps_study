@@ -1,4 +1,4 @@
-# [Platinum V] 공약수열 - 14252 
+# [Platinum IV] 공약수열 - 14252 
 
 [문제 링크](https://www.acmicpc.net/problem/14252) 
 
@@ -8,7 +8,7 @@
 
 ### 분류
 
-유클리드 호제법(euclidean), 수학(math), 정수론(number_theory), 런타임 전의 전처리(precomputation), 정렬(sorting)
+유클리드 호제법, 수학, 정수론, 정렬
 
 ### 문제 설명
 
