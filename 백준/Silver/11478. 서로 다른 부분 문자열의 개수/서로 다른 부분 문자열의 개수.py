@@ -1,16 +1,17 @@
-str = input()
+s = input().strip()
 
-substr_list = [
-''
-] * len(str)
-result = 0
-for i in range(len(str)):
+root = {}
+count = 0
 
-    for j in range(len(str) - i):
-        substr_list[j] += str[j + i]
+for i in range(len(s)):
+    node = root
+    for ch in s[i:]:
+        if ch not in node:
+  
+            node[ch] = {}
+            count += 1
+            
+        node = node[ch]
 
-    result += len(set(substr_list[:len(str) - i]))
 
-    # print(substr_list)
-# print(substr_list)
-print(result)
+print(count)
