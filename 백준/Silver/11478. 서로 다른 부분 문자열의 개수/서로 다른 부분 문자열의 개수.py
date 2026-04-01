@@ -1,22 +1,16 @@
 str = input()
 
 substr_list = [
-
-]
+''
+] * len(str)
 result = 0
 for i in range(len(str)):
-    substr_list.append([])
 
-    if i == 0:
-        for j in range(len(str)):
-            substr_list[0].append(str[j])
+    for j in range(len(str) - i):
+        substr_list[j] += str[j + i]
 
-    else:
-        for j in range(len(str) - i):
-            substr_list[i].append(substr_list[i - 1][j] + str[j + i])
+    result += len(set(substr_list[:len(str) - i]))
 
-for i in range(len(str)):
-    result += len(set(substr_list[i]))
-
+    # print(substr_list)
 # print(substr_list)
 print(result)
