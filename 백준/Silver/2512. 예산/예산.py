@@ -1,16 +1,32 @@
 import sys
-from bisect import bisect_right
 
 input = lambda: sys.stdin.readline().rstrip()
 
 n = int(input())
-lis = list(map(int, input().split()))
+
+lis = list(map(int,input().split()))
+
 budget = int(input())
 
 max_price = max(lis)
 
-def get_sum(limit):
-    return sum(min(x, limit) for x in lis)
+low = 0
+high = max_price + 1
 
-answer = bisect_right(range(max_price + 1), budget, key=get_sum) - 1
-print(answer)
+
+def get_sum(limit):
+    return sum([
+        min(x, limit) for x in lis
+    ])
+
+
+while low < high:
+    mid = (low + high) // 2
+    budget_sum = get_sum(mid)
+
+    if budget_sum <= budget:
+        low = mid + 1
+    else:
+        high = mid
+
+print(low - 1)
