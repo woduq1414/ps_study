@@ -1,20 +1,30 @@
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+
 n = int(input())
-graph = [list(map(int, input().split())) for _ in range(n)]
-visited = [0 for _ in range(n)]
+graph = {}
 
-def dfs(x):
-    for i in range(n):
-        if graph[x][i] == 1 and visited[i] == 0:
-            visited[i] = 1
-            dfs(i)
-
-visited = [0 for _ in range(n)]
 for i in range(n):
-    dfs(i)
+    line_arr = list(map(int, input().split()))
+    graph[i] = []
     for j in range(n):
-        if visited[j] == 1:
-            print(1, end=' ')
-        else:
-            print(0, end=' ')
-    print()
-    visited = [0 for _ in range(n)]
+        if line_arr[j]:
+            graph[i].append(j)
+
+result = [[0] * n for _ in range(n)]
+
+for k in range(n):
+    visited = [False] * n   # 시작점마다 초기화
+    stack = [k]
+
+    while stack:
+        node = stack.pop()
+
+        for near_node in graph[node]:
+            if not visited[near_node]:
+                visited[near_node] = True
+                result[k][near_node] = 1
+                stack.append(near_node)
+
+for i in range(n):
+    print(*result[i])
