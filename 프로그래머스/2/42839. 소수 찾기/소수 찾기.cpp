@@ -1,45 +1,50 @@
+
 #include <string>
-#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
 using namespace std;
 
-bool isPrime(int number) {
-    if (number <= 1) {
-        return false;
-    }
+bool isPrime(int number);
 
-    for (int i = 2; i * i <= number; i++) {
-        if (number % i == 0) {
-            return false;
-        }
-    }
-
-    return true;
+void func(string current, string remain){
+    
 }
 
-void func(string current, string remain, set<int>& result) {
-  
-    if (!current.empty()) {
-        int number = stoi(current);
-
-        if (isPrime(number)) {
-            result.insert(number);
-        }
-    }
-
-    for (int i = 0; i < remain.size(); i++) {
-        string nextCurrent = current + remain[i];
-
-        string nextRemain = remain.substr(0, i)
-                          + remain.substr(i + 1);
-
-        func(nextCurrent, nextRemain, result);
-    }
-}
 
 int solution(string numbers) {
-    set<int> result;
+    int answer = 0;
+    
+    vector<int> v;
+    for (int i = 0 ; i < numbers.size(); i++){
+        v.push_back(numbers[i]);
+    }
+    
+    sort(v.begin(), v.end());
+    do {
+        for (auto it = v.begin(); it != v.end(); ++it)
+            cout << *it << ' ';
+        cout << endl;
+    } while (next_permutation(v.begin(), v.end()));
+     
+        
+    
+    return answer;
+}
 
-    func("", numbers, result);
 
-    return result.size();
+bool isPrime(int number){
+    if(number <= 1){
+        return false;
+    }
+    
+    bool f = true;
+    for(int i = 2 ; i * i <= number ; i++){
+        if(number % i == 0){
+            f = false;
+            break;
+        }
+    }
+    return f;
 }
