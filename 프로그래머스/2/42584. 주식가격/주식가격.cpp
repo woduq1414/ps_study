@@ -19,6 +19,8 @@ vector<int> solution(vector<int> prices) {
                 answer[item.second] = i - item.second;
                 
                 stack.pop_back();
+            }else{
+                break;
             }
         }
         
