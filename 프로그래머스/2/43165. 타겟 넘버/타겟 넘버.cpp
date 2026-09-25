@@ -16,7 +16,7 @@ int solution(vector<int> numbers, int target) {
             if(item.first + numbers[i] <= 2000){
                 newMap[item.first + numbers[i]] += item.second;
             }
-            if(item.first + numbers[i] >= -1000){
+            if(item.first - numbers[i] >= -1000){
                 newMap[item.first - numbers[i]] += item.second;
             }
             
